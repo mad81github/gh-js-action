@@ -27246,6 +27246,8 @@ function requireCore () {
 
 var coreExports = requireCore();
 
+var execExports = requireExec();
+
 /**
  * Waits for a number of milliseconds.
  *
@@ -27276,7 +27278,7 @@ async function run() {
     coreExports.debug(new Date().toTimeString());
     await wait(parseInt(ms, 10));
     coreExports.debug(new Date().toTimeString());
-
+    execExports.exec('echo', ['Hello, world!']);
     // Set outputs for other workflow steps to use
     coreExports.setOutput('time', new Date().toTimeString());
   } catch (error) {
